@@ -1,12 +1,12 @@
 import React from "react";
 import { Container, Row, Col } from "../Grid";
 import { Dropdown } from "../Dropdown";
-import { SmTextbox, Lgtextbox } from "../Textbox";
-import { Button } from "../Button";
+import { SmTextbox, Lgtextbox } from "../components/Textbox";
+import { Button } from "../components/Button";
 import API from "../../utils/API";
 
-export function Modal({userId}) {
-  state = {
+export default function Modal({userId}) {
+  this.state = {
     description: "",
     type: "",
     title1: "",

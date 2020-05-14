@@ -1,12 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "../Grid";
-import { LinkButton, Button } from "../Button";
+import { LinkButton } from "../Button";
 
 export function List({ children }) {
   return <ul className="list-group">{children}</ul>;
 }
 
-// RecipeListItem renders a bootstrap list item containing data from the recipe api call
 export function CollectionListItem(props) {
   return (
     <li className="list-group-item">
@@ -33,7 +32,7 @@ export function CollectionListItem(props) {
           </Col>
         </Row>
         <Row>
-          <LinkButton lable="Comments"/>
+          <LinkButton label="Comments"/>
           <LinkButton label="Upvote"/>
           <LinkButton label="Downvote"/>
         </Row>

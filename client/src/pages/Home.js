@@ -4,7 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import Nav from "../components/Nav"
-//import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -43,7 +43,7 @@ class Home extends Component {
         )
         .catch(err => console.log(err));
     }
-    //return <Redirect to="/results/" />
+    return <Redirect to="/results/" />
   };
 
 

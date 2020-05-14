@@ -1,0 +1,27 @@
+const router = require("express").Router();
+const moviesCollectionsController = require("../../controllers/moviesCollectionsController");
+
+// Matches with "/api/movies/"
+router.route("/").post(moviesCollectionsController.create);
+
+// Matches with "/api/movies/:title"
+router.route("/:title").get(moviesCollectionsController.findByTitle);
+
+// Matches with "/api/movies/:id"
+router
+  .route("/:id")
+  .get(moviesCollectionsController.findById)
+  .delete(moviesCollectionsController.remove);
+
+// Matches with "/api/movies/user/:userId"
+router.route("/user/:userId").get(moviesCollectionsController.findByUserId);
+
+router
+  .route("/upvote/:votes/:id")
+  .put(moviesCollectionsController.updateUpVotes);
+
+router
+  .route("/downvote/:votes/:id")
+  .put(moviesCollectionsController.updateDownVotes);
+
+module.exports = router;

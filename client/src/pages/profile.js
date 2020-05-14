@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import API from "../utils/API";
+// import ReactDOM from "react-dom";
+// import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import Nav from "../components/Nav";
 import { List, CollectionListItem } from "../components/Results";
-//import Modal from "../components/Modal";
-import { Button, LinkButton } from "../components/Button";
+//import Modal from "../components/Modal"; //TODO Has Errors
+import { Button} from "../components/Button";
 
 class Profile extends Component {
   state = {
@@ -12,16 +13,27 @@ class Profile extends Component {
     description: "",
     type: "",
     titles: [],
+    show: false 
   };
 
   // openModal = (event) => {
-  //   event.preventDefault();
+  //   event.preventDefault();                  //TODO does not recognize $
   //   $(".new-collection").modal("toggle");
   // };
+
+showModal = () => {
+  this.setState({ show: true });
+};
+
+hideModal = () => {
+  this.setState({ show: false });
+};
 
   render() {
     return (
       <div>
+      {/* <Modal show={this.state.show} handleClose={this.hideModal}>
+      </Modal> */}
         <Nav />
         <Container fluid>
           <Row>
@@ -48,7 +60,7 @@ class Profile extends Component {
             <Button
               btnType="primary"
               label="Create a New Collection"
-              onClick={this.openModal}
+              onClick={this.showModal}
             />
           </Row>
         </Container>
@@ -57,4 +69,7 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+ export default Profile;
+// const container = document.createElement("div");
+// document.body.appendChild(container);
+// ReactDOM.render(<Profile />, container);

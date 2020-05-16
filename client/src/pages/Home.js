@@ -23,7 +23,7 @@ class Home extends Component {
 
   search = () => {
     if (this.state.dropdownValue === "movies") {
-      API.getMovieCollections()
+      API.getMoviesCollectionsByTitle()
         .then(res =>
           this.setState({ movies: res.data })
         )
@@ -31,13 +31,13 @@ class Home extends Component {
     }
 
     else if (this.state.dropdownValue === "books") {
-      API.getBookCollections()
+      API.getBookCollectionsByTitle()
         .then(res =>
           this.setState({ books: res.data })
         )
         .catch(err => console.log(err));
     } else {
-      API.getTvShowCollections()
+      API.getShowsCollectionsByTitle()
         .then(res =>
           this.setState({ tvShows: res.data })
         )
@@ -57,13 +57,14 @@ class Home extends Component {
         <Nav />
         <Row>
           <Col size="md-12">
-            <Jumbotron class="bg-white">
+            <Jumbotron>
+              <img className="rounded-5" src="icon.png" width= "200" alt="logo"></img>
               <h1>FindMore</h1>
-            </Jumbotron>
-          </Col>
-          <Col size="md-12">
-            <Jumbotron class="bg-white">
-              <h3 className="d-flex justify-content start">
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <h3 className="d-flex justify-content-center">
                 What would you like to find more of today?
               </h3>
               <form>
@@ -73,7 +74,7 @@ class Home extends Component {
                   name="search"
                   placeholder="Enter Title"
                 />
-
+              <br></br>
                 <FormBtn disabled={!this.state.search} onClick={this.search}>
                   Search
                 </FormBtn>

@@ -4,12 +4,13 @@ import Home from "./pages/Home";
 import FAQs from "./pages/Faqs";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/login";
-//import Register from "./pages/register";
-//import Results from "./pages/results";
+import Register from "./pages/register";
+import Results from "./pages/Results";
 import Profile from "./pages/profile";
-//import Nav from "./components/Nav";
 import './App.css';
 //import { render } from 'react-dom';
+//import isAuthenticated from "./config/auth";
+
 
 function App() {
 
@@ -17,15 +18,14 @@ function App() {
     <Router>
       <div>
         <Switch>
-          {/* <Home></Home>
-          <FAQs></FAQs> */}
-          <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
+          
+          <Route exact path="/" component={Home} isAuthenticated/>
+          <Route exact path="/home" component={Home} isAuthenticated />
           <Route exact path="/faqs" component={FAQs} />
-          <Route exact path="/profile" component={Profile} />
-          {/* <Route exact path="/results" component={Results} /> */}
+          <Route exact path="/profile" component={Profile} isAuthenticated />
+          <Route exact path="/results" component={Results} isAuthenticated />
           <Route exact path="/login" component={Login} />
-          {/* <Route exact path="/register" component={Register} /> */}
+          <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />
         </Switch>
       </div>

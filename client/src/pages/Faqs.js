@@ -1,25 +1,25 @@
 import React from "react";
-import Jumbotron from "../components/Jumbotron";
+import Jumbotron2 from "../components/Jumbotron2";
 import { Col, Row, Container } from "../components/Grid";
 import Nav from "../components/Nav";
 
 
- const bgImage = '../../public/images/faq.jpg';
+ 
 
-//Image by Arek Socha from Pixabay
+
 function FAQs() {
     return (
         <div>
             <Nav />
             
-                <Jumbotron style={{backgroundImage: `url('${bgImage}')`}}>
-                <h1>FAQS</h1>
-                <h3> Got Questions? We've got Answers!</h3>
-                </Jumbotron>
+                <Jumbotron2>
+                <h1 className="text-warning">FAQS</h1>
+                <h3 className="text-warning"> Got Questions? We've got Answers!</h3>
+                </Jumbotron2>
             <Container>
                 <Row>
                     <Col size="md-12">
-                        <h3>
+                        <h3 className="text">
                             Do I need an account to search titles?
                          </h3>
                         <p>Yes, you must register for an account prior to utilizing our website. </p>

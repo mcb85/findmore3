@@ -1,5 +1,5 @@
 const db = require("../models");
-//const { Op } = require("sequelize");
+const { Op } = require("sequelize");
 
 module.exports = {
   findByTitle: function (req, res) {

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-//import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Container, Row, Col } from "../components/Grid";
-import { SmTextbox} from "../components/Textbox";
+import { SmTextbox, Lgtextbox } from "../components/Textbox";
 import { Button, LinkButton } from "../components/Button";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
   state = {
     username: "",
     password: "",
@@ -36,10 +36,9 @@ class LoginForm extends Component {
       <Container fluid>
         <Nav/>
         <Row>
-          <Col size="sm-12">
-            {/* <p>logo</p> */}
+          <Col size= "md-12">
           </Col>
-          <Col size="sm-12">
+          <Col size="md-12">
             <form className="form-horizontal">
               <div className="form-group">
                 <Row>
@@ -58,10 +57,10 @@ class LoginForm extends Component {
                 </Row>
                 <Button
                   btnType="primary"
-                  label="Login"
+                  label="Register"
                   onClick={this.handleSubmit}
                 />
-                <LinkButton label="Login" href="/home" method="GET" />
+                <LinkButton label="Go to Login Page" href="/login" method="GET" />
               </div>
             </form>
           </Col>
@@ -71,4 +70,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm
+export default RegisterForm

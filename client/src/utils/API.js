@@ -1,21 +1,7 @@
 import axios from "axios";
 
 export default {
-  getMovieCollections: function (data) {
-    console.log(data);
-    return axios.get("/api/movieCollections");
-  },
-  
-  getBookCollections: function (data) {
-    console.log(data);
-    return axios.get("/api/movieCollections");
-  },
-
-  getTvShowCollections: function (data) {
-    console.log(data);
-    return axios.get("/api/tvShowCollections");
-
-  },
+ 
   getBooksCollectionsByTitle: function (title) {
     return axios.get("/api/books/" + title);
   },

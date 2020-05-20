@@ -6,10 +6,11 @@ export function List({ children }) {
   return <ul className="list-group">{children}</ul>;
 }
 
-export function CollectionListItem(props) {
+export default function CollectionListItem(props) {
   return (
+    <Container>
+    {props.movies}
     <li className="list-group-item">
-      <Container>
         <Row>
           <h3>{props.description}</h3>
         </Row>
@@ -36,8 +37,8 @@ export function CollectionListItem(props) {
           <LinkButton label="Upvote"/>
           <LinkButton label="Downvote"/>
         </Row>
-      </Container>
-    </li>
+      </li>
+    </Container>
   );
 }
 

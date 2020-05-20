@@ -5,6 +5,7 @@ const moviesCollectionsController = require("../../controllers/moviesCollections
 router.route("/").post(moviesCollectionsController.create);
 
 // Matches with "/api/movies/:title"
+console.log("findbyTitle route");
 router.route("/:title").get(moviesCollectionsController.findByTitle);
 
 // Matches with "/api/movies/:id"

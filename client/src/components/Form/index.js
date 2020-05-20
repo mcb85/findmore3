@@ -3,16 +3,16 @@ import React from "react";
 
 export function Input(props) {
   return (
-    <div className="input-group">
-      <input type="text" className="form-control input-bordered border-primary bg-light" style={{ borderBottomLeftRadius: 5, borderBottomRightRadius: 0, borderTopLeftRadius: 5, borderTopRightRadius: 0 }}  aria-label="Text input with segmented dropdown button" {...props} />
-      <div className="input-group-append">
+    <div className="form-group">
+      <input type="text" className="form-control input-bordered border-primary bg-light" style={{ borderBottomLeftRadius: 5, borderBottomRightRadius: 5, borderTopLeftRadius: 5, borderTopRightRadius: 5 }} {...props} />
+      {/* <div className="input-group-append">
         <select value={props.dropdownValue} className="dropdown dropdown-bordered bg-primary text-white" style={{borderBottomLeftRadius: 0, borderBottomRightRadius: 5, borderTopLeftRadius: 0, borderTopRightRadius: 5}} >
           <option>Category</option>
           <option value="books">Books</option>
           <option value="movies">Movies</option>
           <option value="shows">Shows</option>
         </select>
-      </div>
+      </div> */}
     </div>
   );
 }

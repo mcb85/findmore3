@@ -4,9 +4,13 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import Nav from "../components/Nav"
-import { Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
+// import ResultsPage from './ResultsPage';
+import { withRouter } from "react-router";
+//import Link from 'react-router'
 
 
+// const Results = React.createContext('movies');
 
 class Home extends Component {
   constructor(props) {
@@ -14,51 +18,81 @@ class Home extends Component {
 
     this.state = {
       movies: [],
-      books: [],
-      tvShows: [],
-      search: "",
-      dropdownValue: "",
+      title: "",
+      redirect: null
+      // books: [],
+      // tvShows: [],
     };
+
+    // this.props.navigation.navigate('results', { movies: this.state.movies })
   }
 
-  search = () => {
-    if (this.state.dropdownValue === "movies") {
-      API.getMoviesCollectionsByTitle()
-        .then(res =>
-          this.setState({ movies: res.data })
-        )
-        .catch(err => console.log(err));
-    }
-
-    else if (this.state.dropdownValue === "books") {
-      API.getBookCollectionsByTitle()
-        .then(res =>
-          this.setState({ books: res.data })
-        )
-        .catch(err => console.log(err));
-    } else {
-      API.getShowsCollectionsByTitle()
-        .then(res =>
-          this.setState({ tvShows: res.data })
-        )
-        .catch(err => console.log(err));
-    }
-    return <Redirect to="/results/" />
+        
+  
+  search = (e) => {
+    e.preventDefault();
+    console.log("=============title: " + this.state.title);
+    API.getMoviesCollectionsByTitle(this.state.title)
+      .then(res => {
+        console.log("========resulting data is: " + JSON.stringify(res.data));
+        
+        this.setState({ movies: res.data, redirect: "/results" })
+        // console.log(this.state.movies);
+        // console.log(this.state.movies[0].title1);
+        // try routing programmatically
+        // this.props.router.push({
+        //   pathname: '/results',
+        //   state: {
+        //     title: this.state.title,
+        //     movies: res.data
+        //   }
+        // })
+      })
+      .catch(err => console.log(err));
   };
-
 
   handleInputChange = (event) => {
-    this.setState({ search: event.target.value });
+    this.setState({ title: event.target.value });
   };
 
+
   render() {
+    if (this.state.redirect) {
+        console.log(this.state.movies);
+
+      return <Redirect to={{
+        pathname: "/results",
+        state: { title: this.state.title, movies: this.state.movies }
+      }
+      } />
+    }
+
+    
+    // <Link to={{
+    //   pathname: '/results',
+    //   state:[{movies: this.state.movies}]
+    // }}>Results</Link>
+    
+    
+    // this.props.router.push({
+    //   pathname: '/results',
+    //   state: {
+    //     title: this.state.title,
+    //     movies: this.state.movies
+    //   }
+    // })
+
+    
+
     return (
+
       <Container fluid>
+
         <Nav />
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <img className="rounded-5" src="icon.png" width= "200" alt="logo"></img>
+              <img className="rounded-5" src="icon.png" width="200" alt="logo"></img>
               <h1>FindMore</h1>
               <br></br>
               <br></br>
@@ -71,19 +105,26 @@ class Home extends Component {
                 <Input
                   value={this.state.search}
                   onChange={this.handleInputChange}
-                  name="search"
+                  name="title"
                   placeholder="Enter Title"
                 />
-              <br></br>
-                <FormBtn disabled={!this.state.search} onClick={this.search}>
+                <br></br>
+                <FormBtn disabled={!this.state.title} onClick={this.search}
+                >
                   Search
                 </FormBtn>
+
               </form>
             </Jumbotron>
+
+
           </Col>
         </Row>
       </Container>
+
+
     );
+
   }
 
 };

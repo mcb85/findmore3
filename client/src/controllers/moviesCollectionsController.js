@@ -1,8 +1,9 @@
 const db = require("../models");
-//const { Op } = require("sequelize");
+const { Op } = require("sequelize");
 
 module.exports = {
   findByTitle: function (req, res) {
+    console.log("finding by title: " + JSON.stringify(req.params));
     db.movieCollection
       .findAll({
         where: {
@@ -17,8 +18,15 @@ module.exports = {
           ],
         },
       })
-      .then((data) => res.json(data))
-      .catch((err) => res.status(422).json(err));
+      .then((data) => {
+        console.log("findByTitle: data returned");
+        res.json(data)
+      })
+      .catch((err) => {
+        console.log("findByTitle: error recieved " + JSON.stringify(err.message));
+        res.status(422).json(err)
+      });
+    console.log("exiting findByTitle");
   },
   findById: function (req, res) {
     db.movieCollection
@@ -36,6 +44,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
+    console.log("calling create movies");
     db.movieCollection
       .create(req.body)
       .then((data) => res.json(data))

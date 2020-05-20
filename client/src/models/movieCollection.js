@@ -40,7 +40,7 @@ module.exports = function (sequelize, DataTypes) {
           len: [1],
         },
       },
-      title7: {
+      title6: {
         type: DataTypes.TEXT,
         validate: {
           len: [1],

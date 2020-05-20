@@ -1,6 +1,6 @@
 import React from "react";
 
-export function LinkButton(props) {
+export  function LinkButton(props) {
   return (
     <li>
         <a href={props.href} method={props.method} className="nav-link">{props.label}</a>

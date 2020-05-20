@@ -8,7 +8,7 @@ import API from "../../utils/API";
 export default function Modal({userId}) {
   this.state = {
     description: "",
-    type: "",
+    // type: "",
     title1: "",
     title2: "",
     title3: "",
@@ -39,10 +39,16 @@ export default function Modal({userId}) {
       this.state.title2 &&
       this.state.title3
     ) {
-      API.create{this.state.type}Collection({     //TODO parsing error
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis,
+      API.createCollection({     
+        description: this.state.description,
+        // type: "",
+        title1: this.state.title1,
+        title2: this.state.title2,
+        title3: this.state.title3,
+        title4: this.state.title4,
+        title5: this.state.title5,
+        title6: this.state.title6,
+        title7: this.state.title7,
       })
         .then((res) => this.loadBooks())
         .catch((err) => console.log(err));

@@ -5,7 +5,7 @@ module.exports = {
   findByCollection: function (req, res) {
     db.movieComment
       .findAll({
-        include: [{ model: db.movieCollention }],
+        include: [{ model: db.movieCollection }],
         where: {
           movieCollectionId: req.params.movieCollectionid
         }

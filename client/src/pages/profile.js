@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import Nav from "../components/Nav";
-import { List, CollectionListItem } from "../components/Results";
+import { List, CollectionListItem } from "../components/CollectionList";
 //import Modal from "../components/Modal"; //TODO Has Errors
 import { Button} from "../components/Button";
 

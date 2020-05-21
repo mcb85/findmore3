@@ -1,6 +1,6 @@
 .list-overflow-container {
   max-height: 545px;
-  border: 1px black solid;
+  /* border: 1px black solid; */
   border-radius: 4px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -32,6 +32,6 @@
   border-bottom: none;
 }
 
-ul.list-group {
+/* ul.list-group {
   border: 1px solid black;
-}
+} */

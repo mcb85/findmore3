@@ -47,7 +47,7 @@ function Nav() {
               FAQs
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link
               to="/register"
               className={
@@ -57,6 +57,18 @@ function Nav() {
               }
             >
               Register
+            </Link>
+          </li> */}
+          <li className="nav-item">
+            <Link
+              to="/collections"
+              className={
+                window.location.pathname === "/collections"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              Collections
             </Link>
           </li>
         </ul>

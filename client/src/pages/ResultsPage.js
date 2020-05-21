@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
-//import API from "../utils/API";
+import API from "../utils/API";
 import Nav from "../components/Nav";
 import Home from "./Home";
 import { CollectionListItem, List } from "../components/CollectionList";
@@ -21,9 +21,10 @@ class ResultsPage extends Component {
         console.log("constructor");
         console.log(this.props.location.state.movies);
 
-        // this.state ={
-
-        // }
+         this.state ={
+             upVotes: "",
+             downVotes: "",
+         }
     }
 
 
@@ -31,7 +32,19 @@ class ResultsPage extends Component {
         console.log("componentDidMount");
         console.log(this.props.location.state.movies);
     }
+    
+    addUpVote= () => {
+        API.updateUpVotes(this.state.upVotes)
+            .then(this.setState({ upVotes: this.state.upVotes + 1 }))
+            .catch(err => console.log(err))
+    }
 
+    addDownVote = () => {
+        API.updateDownVotes(this.state.DownVotes)
+            .then(this.setState({ downVotes: this.state.downVotes + 1 }))
+            .catch(err => console.log(err))
+    }
+   
     render() {
         return (
             <Container fluid>
@@ -39,13 +52,12 @@ class ResultsPage extends Component {
                 <Jumbotron>
                     <h1>Collections Containing "{this.props.location.state.title}"</h1>
                 </Jumbotron>
-                
-                    <Col size="md-12">
-                        {this.props.location.state.movies ? (
 
-                                <List>
+                        {this.props.location.state.movies ? (
+                            <Col size="md-12">
+                            <List>
                               {this.props.location.state.movies.map((movie) => (
-                            <Card class="list-bordered border-primary " key={movie["id"]}>
+                            <Card className="list-bordered border-primary " key={movie["id"]}>
                                <strong>Collection Id: {movie.id} </strong>
                             <br></br>
                              <p>Collection Description: {movie["description"]}</p>
@@ -91,28 +103,30 @@ class ResultsPage extends Component {
                                           
                                           </Col>
                                          
-                                      </Row>    
-                                      
-                                      
+                                      </Row>
+                                      <p>Upvotes: {movie.upVotes}</p> 
+                                      <p>Downvotes: {movie.downVotes}</p> 
                                       <Row>
                                           <Col size="md-6">
-                                           <UpVoteBtn label="UpVote" /> 
+                                           <UpVoteBtn label="UpVote" onClick={this.addUpVote} /> 
                                           </Col> 
                                           
-                                          <DownVoteBtn label="DownVote"/>
-                                          {/* <p>{movie.upVotes}</p> */}
-                                         
+                                          <Col size ="md-6">
+                                              <DownVoteBtn label="DownVote" onClick={this.addDownVote}/>
+                                          
+                                         </Col>
                                          {/* // <LinkButton label="Comments" />
                                           //<LinkButton label="Upvote" /> */}
                                          </Row> 
                             </Card>
-                        ))}      
-
-                                </List>
+                                    ))}
+                        </List></Col>             
                         ) : ( <h3> No Results to Display</h3> 
-                        
-                        )}
-                </Col>
+                    )}
+               
+                
+            
+                
                 
                  
                

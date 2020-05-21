@@ -6,7 +6,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Nav from "../components/Nav"
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 // import ResultsPage from './ResultsPage';
-import { withRouter } from "react-router";
+//import { withRouter } from "react-router";
 //import Link from 'react-router'
 
 
@@ -24,7 +24,6 @@ class Home extends Component {
       // tvShows: [],
     };
 
-    // this.props.navigation.navigate('results', { movies: this.state.movies })
   }
 
         
@@ -68,22 +67,6 @@ class Home extends Component {
     }
 
     
-    // <Link to={{
-    //   pathname: '/results',
-    //   state:[{movies: this.state.movies}]
-    // }}>Results</Link>
-    
-    
-    // this.props.router.push({
-    //   pathname: '/results',
-    //   state: {
-    //     title: this.state.title,
-    //     movies: this.state.movies
-    //   }
-    // })
-
-    
-
     return (
 
       <Container fluid>

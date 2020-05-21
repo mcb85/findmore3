@@ -51,7 +51,8 @@ export default {
     return axios.delete("/api/movies/" + id);
   },
   createCollection: function (data) {
-    return axios.post("/api/movies/", data);
+    console.log(data);
+    return axios.post("/api/movies", data);
   },
   getMoviesCommentsByCollectionId: function (id) {
     return axios.get("/api/movieComments/" + id);
@@ -71,6 +72,16 @@ export default {
   deleteUser: function (id) {
     return axios.delete("/api/user/" + id);
   },
+  updateUpVotes: function (id) {
+    return axios.put("api/upvote/votes/" + id);
+  },
+  
+  updateDownVotes: function (id) {
+  return axios.put("api/downvote/votes/" + id);
+}
+  
+  
+ 
 };
  
 

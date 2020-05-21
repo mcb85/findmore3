@@ -6,7 +6,7 @@ export function List({ children }) {
   return <ul className="list-group">{children}</ul>;
 }
 
-export default function CollectionListItem(props) {
+export function CollectionListItem(props) {
   return (
     <Container>
     {props.movies}

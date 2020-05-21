@@ -23,7 +23,7 @@ module.exports = {
         res.json(data)
       })
       .catch((err) => {
-        console.log("findByTitle: error recieved " + JSON.stringify(err.message));
+        console.log("findByTitle: error received " + JSON.stringify(err.message));
         res.status(422).json(err)
       });
     console.log("exiting findByTitle");
@@ -36,7 +36,7 @@ module.exports = {
   },
   findByUserId: function (req, res) {
     db.movieCollection
-      .findOne({
+      .findAll({
         include: [{ model: db.user }],
         where: { userId: req.params.id },
       })
@@ -47,7 +47,7 @@ module.exports = {
     console.log("calling create movies");
     db.movieCollection
       .create(req.body)
-      .then((data) => res.json(data))
+      .then(dbModel => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   updateUpVotes: function (req, res) {

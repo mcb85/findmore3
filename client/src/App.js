@@ -7,6 +7,8 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import ResultsPage from "./pages/ResultsPage";
 import Profile from "./pages/profile";
+import Collections from "./pages/Collections";
+import Modal from "./components/Modal";
 import './App.css';
 //import { render } from 'react-dom';
 //import isAuthenticated from "./config/auth";
@@ -16,12 +18,14 @@ function App() {
   return (
     <Router>
       <div>
+        <Modal />
         <Switch>
           <Route exact path="/" component={Home} isAuthenticated/>
           <Route exact path="/home" component={Home} isAuthenticated />
           <Route exact path="/faqs" component={FAQs} />
           <Route exact path="/profile" component={Profile} isAuthenticated />
           <Route exact path="/results" component={ResultsPage} isAuthenticated />
+          <Route exact path="/collections" component={Collections} isAuthenticated />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />

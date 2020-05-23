@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [45,150],
+          len: [1,150],
         },
       },
       title1: {
@@ -30,27 +30,15 @@ module.exports = function (sequelize, DataTypes) {
       },
       title4: {
         type: DataTypes.TEXT,
-        validate: {
-          len: [1],
-        },
       },
       title5: {
         type: DataTypes.TEXT,
-        validate: {
-          len: [1],
-        },
       },
       title6: {
         type: DataTypes.TEXT,
-        validate: {
-          len: [1],
-        },
       },
       title7: {
         type: DataTypes.TEXT,
-        validate: {
-          len: [1],
-        },
       },
       upVotes: {
         type: DataTypes.INTEGER,

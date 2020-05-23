@@ -4,7 +4,8 @@ import React from "react";
 export function Input(props) {
   return (
     <div className="form-group">
-      <input type="text" className="form-control input-bordered border-primary bg-light" style={{ borderBottomLeftRadius: 5, borderBottomRightRadius: 5, borderTopLeftRadius: 5, borderTopRightRadius: 5 }} {...props} />
+      <input type="text" className="form-control input-bordered border-primary bg-light d-flex justify-content-center"
+        style={{ borderBottomLeftRadius: 5, borderBottomRightRadius: 5, borderTopLeftRadius: 5, borderTopRightRadius: 5 }} {...props} />
       {/* <div className="input-group-append">
         <select value={props.dropdownValue} className="dropdown dropdown-bordered bg-primary text-white" style={{borderBottomLeftRadius: 0, borderBottomRightRadius: 5, borderTopLeftRadius: 0, borderTopRightRadius: 5}} >
           <option>Category</option>

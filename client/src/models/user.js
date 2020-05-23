@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [8],
-        is: ["^[a-z]+$",'i']
+        is: ["^[a-z0-9]+$",'i']
       }
     }
   });
@@ -27,6 +27,7 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
+  
   user.prototype.verifyPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };

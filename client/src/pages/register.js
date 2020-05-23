@@ -21,14 +21,18 @@ class RegisterForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log("username:" + this.state.username)
+    console.log("password" + this.state.password)
     if (this.state.username && this.state.password) {
-      API.LoginUser({
+      API.RegisterUser({
         username: this.state.username,
         password: this.state.password,
       })
-        .then((res) => console.log(res))
+        .then((res) =>
+          console.log(res))
         .catch((err) => console.log(err));
     }
+    console.log("registering user")
   };
 
   render() {
@@ -44,22 +48,24 @@ class RegisterForm extends Component {
                 <Row>
                   <SmTextbox
                     placeholder="Username"
+                    name="username"
                     value={this.state.username}
                     onChange={this.handleInputChange}
                   />
                 </Row>
                 <Row>
                   <SmTextbox
+                    name="password"
                     placeholder="Password"
                     value={this.state.password}
                     onChange={this.handleInputChange}
                   />
                 </Row>
-                <Button
-                  btnType="primary"
+                <button className="btn btn-primary" style={{ borderRadius: 5 }}
+                  disabled={!(this.state.username && this.state.password)}
                   label="Register"
-                  onClick={this.handleSubmit}
-                />
+                  onClick={this.handleSubmit} >Register
+                </button>
                 <LinkButton label="Go to Login Page" href="/login" method="GET" />
               </div>
             </form>

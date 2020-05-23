@@ -19,12 +19,15 @@ function FAQs() {
             <Container>
                 <Row>
                     <Col size="md-12">
+                        <h3>What is FindMore? </h3>
+                        <p>FindMore is....</p>
                         <h3 className="text">
                             Do I need an account to search titles?
                          </h3>
                         <p>Yes, you must register for an account prior to utilizing our website. </p>
                         <h3>How do I register for an account?</h3>
                         <p>Visit the register page to create login credentials. </p>
+                        
                     </Col>
                 </Row>
             </Container>

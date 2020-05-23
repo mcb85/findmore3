@@ -115,14 +115,14 @@ class ResultsPage extends Component {
                                               <DownVoteBtn label="DownVote" onClick={this.addDownVote}/>
                                           
                                          </Col>
-                                         {/* // <LinkButton label="Comments" />
-                                          //<LinkButton label="Upvote" /> */}
+                                          {/* <LinkButton label="Comments" /> */}
+                                        
                                          </Row> 
                             </Card>
                                     ))}
-                        </List></Col>             
+                        </List></Col>            
                         ) : ( <h3> No Results to Display</h3> 
-                    )}
+                    )} 
                
                 
             

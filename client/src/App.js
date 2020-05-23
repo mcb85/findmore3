@@ -14,13 +14,15 @@ import './App.css';
 //import isAuthenticated from "./config/auth";
 
 
+
 function App() {
   return (
+     
     <Router>
       <div>
-        <Modal />
+        {/* <Modal /> */}
         <Switch>
-          <Route exact path="/" component={Home} isAuthenticated/>
+          <Route exact path="/" component={Login}/>
           <Route exact path="/home" component={Home} isAuthenticated />
           <Route exact path="/faqs" component={FAQs} />
           <Route exact path="/profile" component={Profile} isAuthenticated />

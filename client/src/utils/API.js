@@ -39,11 +39,18 @@ export default {
   //   return axios.post("/api/booksComments/", data);
   // },
   getMoviesCollectionsByTitle: async function (title) {
-
     const result = await axios.get("/api/movies/" + title);
     console.log("getMoviesCollectionsByTitle result: " + JSON.stringify(result.data));
     return result;
   },
+  saveMoviesCollection: function (id) {
+    return axios.post("/api/movies/" + id);
+  },
+
+  getMoviesCollectionsById: function (id) {
+    return axios.get("api/movies/" + id);
+  },
+  
   getMoviesCollectionByUserId: function (id) {
     return axios.get("/api/movies/user/" + id);
   },
@@ -51,7 +58,7 @@ export default {
     return axios.delete("/api/movies/" + id);
   },
   createCollection: function (data) {
-    console.log(data);
+    console.log("create collection data", data);
     return axios.post("/api/movies", data);
   },
   getMoviesCommentsByCollectionId: function (id) {
@@ -61,9 +68,13 @@ export default {
     return axios.post("/api/movieComments/", data);
   },
   LoginUser: function (data) {
+    console.log("logging in");
+    console.log(data);
     return axios.post("api/user/login", data);
   },
   RegisterUser: function (data) {
+    console.log("registering user");
+    console.log(data);
     return axios.post("api/user/register", data);
   },
   getUserById: function (id) {

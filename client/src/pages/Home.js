@@ -10,8 +10,6 @@ import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 //import Link from 'react-router'
 
 
-// const Results = React.createContext('movies');
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -38,14 +36,6 @@ class Home extends Component {
         this.setState({ movies: res.data, redirect: "/results" })
         // console.log(this.state.movies);
         // console.log(this.state.movies[0].title1);
-        // try routing programmatically
-        // this.props.router.push({
-        //   pathname: '/results',
-        //   state: {
-        //     title: this.state.title,
-        //     movies: res.data
-        //   }
-        // })
       })
       .catch(err => console.log(err));
   };
@@ -70,7 +60,6 @@ class Home extends Component {
     return (
 
       <Container fluid>
-
         <Nav />
         <Row>
           <Col size="md-12">
@@ -84,6 +73,8 @@ class Home extends Component {
               <h3 className="d-flex justify-content-center">
                 What would you like to find more of today?
               </h3>
+              <Col size="md-12">
+                <Col size="md-12">
               <form>
                 <Input
                   value={this.state.search}
@@ -97,7 +88,8 @@ class Home extends Component {
                   Search
                 </FormBtn>
 
-              </form>
+                </form></Col></Col>
+              
             </Jumbotron>
 
 

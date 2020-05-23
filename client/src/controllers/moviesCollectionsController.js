@@ -32,7 +32,8 @@ module.exports = {
     db.movieCollection
       .findOne({ where: { id: req.params.id } })
       .then((data) => res.json(data))
-      .catch((err) => res.status(422).json(err));
+      .catch((err) =>
+        res.status(422).json(err));
   },
   findByUserId: function (req, res) {
     db.movieCollection
@@ -41,14 +42,20 @@ module.exports = {
         where: { userId: req.params.id },
       })
       .then((data) => res.json(data))
-      .catch((err) => res.status(422).json(err));
+      .catch((err) =>
+        res.status(422).json(err));
   },
   create: function (req, res) {
     console.log("calling create movies");
     db.movieCollection
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+      .then(data => res.json(data))
+      .catch((err) => {
+        console.log("createCollection: error received " + JSON.stringify(err.message))
+        console.log("createcollection" + data);
+        console.log(err);
+        res.status(422).json(err);
+  })
   },
   updateUpVotes: function (req, res) {
     db.movieCollection

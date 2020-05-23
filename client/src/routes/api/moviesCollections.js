@@ -2,6 +2,7 @@ const router = require("express").Router();
 const moviesCollectionsController = require("../../controllers/moviesCollectionsController");
 
 // Matches with "/api/movies/"
+console.log("create collection post route")
 router.route("/").post(moviesCollectionsController.create);
 
 // Matches with "/api/movies/:title"

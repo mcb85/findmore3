@@ -39,11 +39,15 @@ module.exports = {
     db.movieCollection
       .findAll({
         include: [{ model: db.user }],
-        where: { userId: req.params.id },
+        where: { userId: req.params.userId },
       })
       .then((data) => res.json(data))
-      .catch((err) =>
-        res.status(422).json(err));
+      .catch((err) => {
+        console.log("find by user id");
+        console.log(err);
+        res.status(422).json(err);
+      })
+        
   },
   create: function (req, res) {
     console.log("calling create movies");

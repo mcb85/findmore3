@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //import { Redirect } from "react-router-dom";
 import { Container, Row, Col } from "../components/Grid";
 import { SmTextbox} from "../components/Textbox";
-import { Button, LinkButton } from "../components/Button";
+import {  LinkButton } from "../components/Button";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron";

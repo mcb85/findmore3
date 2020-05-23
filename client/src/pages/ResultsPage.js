@@ -50,76 +50,31 @@ class ResultsPage extends Component {
             <Container fluid>
                 <Nav />
                 <Jumbotron>
-                    <h1>Collections Containing "{this.props.location.state.title}"</h1>
+                    <h1 className="text-primary">Collections Containing "{this.props.location.state.title}"</h1>
                 </Jumbotron>
 
                         {this.props.location.state.movies ? (
                             <Col size="md-12">
                             <List>
                               {this.props.location.state.movies.map((movie) => (
-                            <Card className="list-bordered border-primary " key={movie["id"]}>
-                               <strong>Collection Id: {movie.id} </strong>
-                            <br></br>
-                             <p>Collection Description: {movie["description"]}</p>
-                                <br></br>
-                                <strong><p>Movies in this Collection</p></strong>
-                                      <Row style={styles} className="row-bordered border-primary">
-                                    <Col size="md-12">
-                                        <p >{movie.title1}</p>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col size="md-12">
-                                        <p>{movie.title2}</p>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col size="md-12">
-                                        <p>{movie.title3}</p>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col size="md-12">
-                                        <p>{movie.title4}</p>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col size="md-12">
-                                        <p>{movie.title5}</p>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col size="md-12">
-                                        <p>{movie.title6}</p>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col size="md-12">
-                                        <p>{movie.title7}</p>
-                                          
-                                          </Col>
-                                         
-                                      </Row>
-                                      <p>Upvotes: {movie.upVotes}</p> 
-                                      <p>Downvotes: {movie.downVotes}</p> 
-                                      <Row>
-                                          <Col size="md-6">
-                                           <UpVoteBtn label="UpVote" onClick={this.addUpVote} /> 
-                                          </Col> 
-                                          
-                                          <Col size ="md-6">
-                                              <DownVoteBtn label="DownVote" onClick={this.addDownVote}/>
-                                          
-                                         </Col>
-                                          {/* <LinkButton label="Comments" /> */}
-                                        
-                                         </Row> 
-                            </Card>
-                                    ))}
+                                  <CollectionListItem
+                                      key={movie["id"]}
+                                      id={movie.id}
+                                      description={movie.description}
+                                      title1={movie.title1}
+                                      title2={movie.title2}
+                                      title3={movie.title3}
+                                      title4={movie.title4}
+                                      title5={movie.title5}
+                                      title6={movie.title6}
+                                      title7={movie.title7}
+                                      upVotes={movie.upVotes}
+                                      downVotes={movie.downVotes}
+                                      quality={movie.href3}
+                                  />
+    
+                              ))}
+                            
                         </List></Col>            
                         ) : ( <h3> No Results to Display</h3> 
                     )} 

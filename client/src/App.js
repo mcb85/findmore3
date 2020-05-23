@@ -8,7 +8,7 @@ import Register from "./pages/register";
 import ResultsPage from "./pages/ResultsPage";
 import Profile from "./pages/profile";
 import Collections from "./pages/Collections";
-import Modal from "./components/Modal";
+//import Modal from "./components/Modal";
 import './App.css';
 //import { render } from 'react-dom';
 //import isAuthenticated from "./config/auth";

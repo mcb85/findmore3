@@ -6,7 +6,7 @@ import "./style.css";
 // That way we don't have to define them all individually
 function DownVoteBtn(props) {
   return (
-    <span className="downVote-btn " {...props} role="button" tabIndex="0">
+    <span className="downVote-btn btn-danger" style={{borderRadius: 5, padding: 10}} {...props} role="button" tabIndex="0">
       <i className="fa fa-thumbs-down">DownVote</i>
     </span>
   );

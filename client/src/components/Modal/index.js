@@ -1,7 +1,7 @@
-import React, {useState, Component } from "react";
+import React, { Component } from "react";
 import { Container, Col } from "../Grid";
 import { SmTextbox, LgTextbox } from "../Textbox";
-import { Button } from "../Button";
+//import { Button } from "../Button";
 import API from "../../utils/API";
 import { Modal, ModalManager, Effect } from 'react-dynamic-modal';
 

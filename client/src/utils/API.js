@@ -50,9 +50,9 @@ export default {
   getMoviesCollectionsById: function (id) {
     return axios.get("api/movies/" + id);
   },
-  
-  getMoviesCollectionByUserId: function (id) {
-    return axios.get("/api/movies/user/" + id);
+
+  getMoviesCollectionByUserId: function (userId) {
+    return axios.get("/api/movies/user/" + userId);
   },
   deleteMoviesCollection: function (id) {
     return axios.delete("/api/movies/" + id);

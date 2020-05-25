@@ -44,14 +44,16 @@ passport.use(
   "local-login",
   new LocalStrategy(
     {
-      usernameField: "username"
+      usernameField: "username",
+      passReqToCallback: true
     },
-    function(username, password, done) {
+    function(req,username, password, done) {
       db.user.findOne({ where: { username: username } }).then(function(user) {
         if (!user) {
           return done(null, false, { message: "username incorrect" });
         }
-        if (!bcrypt.compareSync(password, user.password)) {
+
+      if (!bcrypt.compareSync(password, user.password)) {
           return done(null, false, { message: "Incorrect password" });
         }
         return done(null, user);
@@ -60,12 +62,16 @@ passport.use(
   )
 );
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser((user, done) => {
+  console.log("serializing user:", user.id);
   done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
 module.exports = passport;
+
+
+

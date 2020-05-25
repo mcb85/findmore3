@@ -8,8 +8,9 @@ import Home from "./Home";
 import { CollectionListItem, List } from "../components/CollectionList";
 import Card from "../components/Card";
 //import LinkButton from "../components/Button";
-import UpVoteBtn from "../components/UpVoteBtn";
-import DownVoteBtn from "../components/DownVoteBtn";
+// import UpVoteBtn from "../components/UpVoteBtn";
+// import DownVoteBtn from "../components/DownVoteBtn";
+// import SaveBtn from "../components/SaveBtn";
 
 const styles = {
     border: "1px, solid, primary"
@@ -21,31 +22,76 @@ class ResultsPage extends Component {
         console.log("constructor");
         console.log(this.props.location.state.movies);
 
-         this.state ={
-             upVotes: "",
-             downVotes: "",
-         }
+        this.state = {
+            collection: [],
+            // movies: this.props.location.state.movies,
+            // upVotes: "",
+            // downVotes: "",
+            // saved: false,
+            userId: 2,
+            user: undefined
+        }
+        
+        this.saveMoviesCollection = this.saveMoviesCollection.bind(this);
+        this.addUpVote = this.addUpVote.bind(this);
+        this.addDownVote = this.addDownVote.bind(this);
     }
 
 
     componentDidMount() {
         console.log("componentDidMount");
         console.log(this.props.location.state.movies);
-    }
-    
-    addUpVote= () => {
-        API.updateUpVotes(this.state.upVotes)
-            .then(this.setState({ upVotes: this.state.upVotes + 1 }))
-            .catch(err => console.log(err))
+        this.loadUser();
     }
 
-    addDownVote = () => {
-        API.updateDownVotes(this.state.DownVotes)
-            .then(this.setState({ downVotes: this.state.downVotes + 1 }))
-            .catch(err => console.log(err))
+    loadUser= async () => {
+        const user = await API.getUserById(this.state.userId);
+        console.log("Retrieved user: " + JSON.stringify(user.data));
+        this.setState({ user: user.data });
+    }
+    
+    addUpVote = (collection, e) => {
+        e.preventDefault(); 
+        console.log(collection.id);
+        API.updateUpVotes(collection.id)
+            .then(result => {
+                console.log("addupvote result: " + JSON.stringify(result))
+            } ).catch(err => console.log(err))
+            console.log(collection.upVotes)
+    }
+
+    addDownVote = (collection, e) => {
+        e.preventDefault();
+        console.log(collection.id);
+        API.updateDownVotes(collection.id)
+            .then(result => {
+                console.log("addDownvote result: " + JSON.stringify(result))
+            }).catch(err => console.log(err))
+        console.log(collection.downVotes)
     }
    
+    saveMoviesCollection = (collection, e) => {
+        e.preventDefault();
+        console.log("state: " + JSON.stringify(this.state));
+        const collections = this.state.user.savedCollections;
+        console.log("collections: " + JSON.stringify(collections))
+        collections.push(collection.id);
+        console.log("collections2: " + JSON.stringify(collections))
+        API.saveMoviesCollection(this.state.userId, collections)
+            .then(result => {
+                console.log("saved result: " + result);
+            })
+            .catch(err => console.log(err))
+        alert("collection saved")
+        console.log("the collection is: " + collection)
+    }
+
+    leaveComment = () => {
+        alert("adding comment")
+        console.log('comment saved')
+    }
     render() {
+        const self=this
         return (
             <Container fluid>
                 <Nav />
@@ -71,6 +117,12 @@ class ResultsPage extends Component {
                                       upVotes={movie.upVotes}
                                       downVotes={movie.downVotes}
                                       quality={movie.href3}
+                                      SaveBtn={self.saveMoviesCollection.bind(this, movie)}
+                                      upVoteBtn={self.addUpVote.bind(this, movie)}
+                                      DownVoteBtn={self.addDownVote.bind(this,movie)}
+                                    //   postComments={self.postComments.bind(this, movie)}
+                                    //   viewComments={self.viewComments.bind(this, movie)}
+
                                   />
     
                               ))}

@@ -16,7 +16,7 @@ class MyModal extends Component {
     title5: "",
     title6: "",
     title7: "",
-    userId: this.props.userId,
+    userId: 2,
   };
 
   handleInputChange = (event) => {
@@ -43,7 +43,7 @@ class MyModal extends Component {
         title5: this.state.title5,
         title6: this.state.title6,
         title7: this.state.title7,
-        userId: 1,
+        userId: this.state.userId,
       })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
@@ -120,7 +120,7 @@ class MyModal extends Component {
               this.handleSubmit
             }>Submit</button>
             <span></span>
-            <button className="btn btn-danger" style={ {borderBottomLeftRadius: 5, borderBottomRightRadius: 5, borderTopLeftRadius: 5, borderTopRightRadius: 5 }} onClick={ModalManager.close}>Close Modal</button></Col></Container>
+            <button className="btn btn-danger" style={ {borderBottomLeftRadius: 5, borderBottomRightRadius: 5, borderTopLeftRadius: 5, borderTopRightRadius: 5 }} onClick={ModalManager.close}>Close</button></Col></Container>
         <br></br>
       </Modal>
     );

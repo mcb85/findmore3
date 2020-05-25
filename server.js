@@ -5,6 +5,7 @@ const passport = require("./client/src/config/passport-config");
 const app = express();
 const routes = require("./client/src/routes");
 const db = require("./client/src/models");
+//const isAuthenticated = require("./config/isAuthenticated");
 const PORT = process.env.PORT || 3001;
 
 // Middleware

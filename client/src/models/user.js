@@ -18,6 +18,21 @@ module.exports = function(sequelize, DataTypes) {
         len: [8],
         is: ["^[a-z0-9]+$",'i']
       }
+    },
+
+    savedCollections: {
+      type: DataTypes.STRING,
+      get() {
+        if (this.getDataValue('savedCollections')) {
+          return this.getDataValue('savedCollections').split(',')
+        } else {
+          return []
+        }
+        
+      },
+      set(val) {
+        this.setDataValue('savedCollections', val.join(','));
+      },
     }
   });
 
@@ -27,16 +42,23 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-  
+  user.associate = function (models) {
+    user.hasMany(models.movieCollection, {
+      onDelete: "cascade"
+    });
+  };
+
   user.prototype.verifyPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };
-
-  user.addHook("beforeCreate", function(user) {
+  
+  user.addHook("beforeCreate", function (user) {
     user.password = bcrypt.hashSync(
       user.password, 10
     );
   });
+ 
 
   return user;
 };
+

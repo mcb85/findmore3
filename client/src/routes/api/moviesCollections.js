@@ -5,6 +5,7 @@ const moviesCollectionsController = require("../../controllers/moviesCollections
 console.log("create collection post route")
 router.route("/").post(moviesCollectionsController.create);
 
+
 // Matches with "/api/movies/:title"
 console.log("findbyTitle route");
 router.route("/:title").get(moviesCollectionsController.findByTitle);
@@ -19,11 +20,11 @@ router
 router.route("/user/:userId").get(moviesCollectionsController.findByUserId);
 
 router
-  .route("/upvote/:votes/:id")
+  .route( "/:id/upvotes")
   .put(moviesCollectionsController.updateUpVotes);
 
 router
-  .route("/downvote/:votes/:id")
+  .route("/:id/downvotes")
   .put(moviesCollectionsController.updateDownVotes);
 
 module.exports = router;

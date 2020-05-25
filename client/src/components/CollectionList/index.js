@@ -5,11 +5,15 @@ import UpVoteBtn from "../UpVoteBtn";
 import DownVoteBtn from "../DownVoteBtn";
 import Jumbotron from "../Jumbotron 3";
 import SaveBtn from "../SaveBtn";
+
+
 export function List({ children }) {
   return <ul className="list-group">{children}</ul>;
 }
 
-export function CollectionListItem(props) {
+export function CollectionListItem (props) {
+  
+  
   return (
     <Container>
       {props.movies}
@@ -72,10 +76,10 @@ export function CollectionListItem(props) {
         <br></br>
         <Col size="sm-7">
           <Row>
-            <Col size="sm-3"><UpVoteBtn label="Upvote" /></Col>
-            <Col size="sm-3"><DownVoteBtn label="Downvote" /></Col>
-            <Col size="sm-3"><button className="btn btn-primary text-white" label="View Comments" style={{ borderRadius: 5, padding: 10, }}>View Comments</button></Col>
-            <Col size="sm-3"><SaveBtn label="Save"></SaveBtn></Col>
+            <Col size="sm-3"><UpVoteBtn label="Upvote" onClick={props.upVoteBtn}/></Col> 
+            <Col size="sm-3"><DownVoteBtn label="Downvote" onClick={props.DownVoteBtn} /></Col> 
+            <Col size="sm-3"><button className="btn btn-primary text-white" label="Leave a Comment" style={{ borderRadius: 5, padding: 10, }} onClick={props.leaveComment}>Leave a Comment</button></Col>
+            <Col size="sm-3"><SaveBtn label="Save" onClick={props.SaveBtn}>Save Collection</SaveBtn></Col>
           </Row>
         </Col>
 

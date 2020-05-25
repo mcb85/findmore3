@@ -1,5 +1,5 @@
 const db = require("../models");
-const { Op } = require("sequelize");
+const { Op, Sequelize } = require("sequelize");
 
 module.exports = {
   findByTitle: function (req, res) {
@@ -63,13 +63,20 @@ module.exports = {
   },
   updateUpVotes: function (req, res) {
     db.movieCollection
-      .update({upVotes: (req.params.votes + 1)},{ where: {id: req.params.id} })
-      .then((data) => res.json(data))
-      .catch((err) => res.status(422).json(err));
+      .update({upVotes: Sequelize.literal('upVotes + 1')},{ where: {id: req.params.id} })
+      .then((data) => {
+        console.log("data: " + JSON.stringify(data));
+        res.json(data)
+      })
+      .catch((err) => {
+        console.log("error: " + JSON.stringify(err.message));
+        res.status(422).json(err)
+      })
   },
+  
   updateDownVotes: function (req, res) {
     db.movieCollection
-      .update({downVotes: (req.params.votes - 1)},{ where: {id: req.params.id} })
+      .update({downVotes: Sequelize.literal('downVotes + 1')},{ where: {id: req.params.id} })
       .then((data) => res.json(data))
       .catch((err) => res.status(422).json(err));
   },

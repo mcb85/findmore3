@@ -42,9 +42,13 @@ module.exports = function (sequelize, DataTypes) {
       },
       upVotes: {
         type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0
       },
       downVotes: {
         type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0
       },
     });
   

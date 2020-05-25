@@ -1,12 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-module.exports = function isAuthenticated(req, res, next) {
+module.exports = function(req, res, next) {
   if (req.user) {
     return next();
   }
   return res.redirect("/login");
 };
+
+
+
 
 // const passport = require("passport");
 // const util = require("util");

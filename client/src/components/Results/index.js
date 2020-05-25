@@ -74,9 +74,8 @@ export function CollectionListItem(props) {
             <Col size="sm-6">
               
         </Col>
-          <Col size="sm-2"><UpVoteBtn  label="Upvote" /></Col>
-            <Col size="sm-2"><DownVoteBtn   label="Downvote"/></Col>
-          <Col size="sm-2"><button className="btn btn-primary text-white" label="View Comments" style={{ borderRadius: 5, padding: 10, }}>View Comments</button></Col>
+          
+          <Col size="sm-12"><button className="btn btn-primary text-white" label="View Comments" style={{ borderRadius: 5, padding: 10, }}>View Comments</button></Col>
           
         </Row>
         </Col>

@@ -3,8 +3,15 @@ import { Redirect } from "react-router-dom";
 import { Container, Row, Col } from "../components/Grid";
 import { SmTextbox } from "../components/Textbox";
 import { Button, LinkButton } from "../components/Button";
+import Card from "../components/Card";
 import Nav from "../components/Nav";
 import API from "../utils/API";
+
+var divStyle = {
+  display: "flex",
+  alignItems: "center",
+  textAlign:"center"
+}
 
 class RegisterForm extends Component {
   state = {
@@ -42,22 +49,30 @@ class RegisterForm extends Component {
         <Row>
           <Col size="md-12">
           </Col>
-          <Col size="md-12">
-            <form className="form-horizontal">
-              <div className="form-group">
-                <Row>
+          <Col size="md-12 d-flex justify-content-center ">
+            <Card>
+              <br></br>
+              <img className="mx-auto" src="icon.png" alt="logo" width="60px"></img>
+              <br></br>
+              <h4 className="text-center">Sign Up to Search Movies and Find More! </h4>
+            <form className="form-horizontal d-flex justify-content-center">
+              <div className="form-group"  >
+                <Row >
+                  <Col size="sm-12"></Col>
+                  {/* <p className="d-flex justify-content-center">Username</p> */}
                   <SmTextbox
-                    placeholder="Username"
+                    placeholder="Username: 8-15 characters"
                     name="username"
                     value={this.state.username}
                     onChange={this.handleInputChange}
                   />
                 </Row>
                 <Row>
+                  {/* <strong><p className="d-flex justify-content-center">Password</p></strong> */}
                   <SmTextbox
                     name="password"
                     type="password"
-                    placeholder="Password"
+                    placeholder="Password: 8-15 characters"
                     value={this.state.password}
                     onChange={this.handleInputChange}
                   />
@@ -67,9 +82,12 @@ class RegisterForm extends Component {
                   label="Register"
                   onClick={this.handleSubmit} >Register
                 </button>
-                <LinkButton label="Go to Login Page" href="/login" method="GET" />
               </div>
-            </form>
+              </form>
+              <br></br>
+            <h5 className="text-center">Already Have an Account?</h5>
+              <LinkButton className="text-center" style={{ divStyle }} label="Go to Login Page" href="/login" method="GET" />
+            </Card>
           </Col>
         </Row>
       </Container>

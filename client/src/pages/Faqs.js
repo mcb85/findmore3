@@ -20,14 +20,20 @@ function FAQs() {
                 <Row>
                     <Col size="md-12">
                         <h3>What is FindMore? </h3>
-                        <p>FindMore is....</p>
+                        <p>Findmore allows you to input the title of a movie you enjoy and find collections of movie titles that are similar and you are likely to enjoy as well. 
+                        Collections are user created, so the possibilities are endless on how many different collections/combinations will be returned. Similarities are determined by users.
+                        Collections are also rated by users, to help guide your collection choosing. 
+</p>
                         <h3 className="text">
                             Do I need an account to search titles?
                          </h3>
                         <p>Yes, you must register for an account prior to utilizing our website. </p>
                         <h3>How do I register for an account?</h3>
-                        <p>Visit the register page to create login credentials. </p>
-                        
+                        <p>Click on "Don't have an account? Sign up" from the login page to create login credentials. </p>
+                        <h3 className="text">
+                            How do I create a collection?
+                         </h3>
+                        <p>Go the Collections tab and click on Create a Collection. You must enter a minimum of 3 movie titles. </p>
                     </Col>
                 </Row>
             </Container>

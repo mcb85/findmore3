@@ -30,6 +30,7 @@ function App() {
           <Route exact path="/collections" component={Collections} isAuthenticated />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/logout"/>
           <Route component={NoMatch} />
         </Switch>
       </div>

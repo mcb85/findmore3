@@ -70,6 +70,19 @@ function Nav() {
               Collections
             </Link>
           </li>
+
+           <li className="nav-item justify-content-right">
+            <Link
+              to="/logout"
+              className={
+                window.location.pathname === "/logout"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              Logout
+            </Link>
+          </li> 
         </ul>
       </div>
     </nav>

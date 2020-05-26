@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function Card({children}) {
+function Card2({children}) {
   return (
     <div
       className="card" style={{borderRadius:5}}>
@@ -10,4 +10,4 @@ function Card({children}) {
   );
 }
 
-export default Card;
+export default Card2;

@@ -44,6 +44,12 @@ export default {
     console.log(data);
     return axios.post("api/user/register", data);
   },
+
+  LogoutUser: function (data) {
+    console.log("logging out user");
+    console.log(data);
+    return axios.post("api/user/logout", data)
+  },
   getUserById: function (id) {
     return axios.get("api/user/" + id);
   },

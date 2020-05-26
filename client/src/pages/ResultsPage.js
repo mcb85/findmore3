@@ -28,7 +28,7 @@ class ResultsPage extends Component {
             // upVotes: "",
             // downVotes: "",
             // saved: false,
-            userId: 2,
+            userId: 19,
             user: undefined
         }
         

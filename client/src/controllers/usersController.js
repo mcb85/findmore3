@@ -68,21 +68,22 @@ module.exports = {
   },
 
   getCollections: function (req, res) {
+    console.log("getCollections req.params.id " + req.params.id)
+
     db.user
-      .findOne({
-        savedCollections: { where: { id: req.params.id } }
-      }).then((data) => {
-        console.log("data " + JSON.stringify(data.savedCollections) )
+      .findOne({ where: { id: req.params.id } })
+      .then((user) => {
+        console.log("getCollections user " + JSON.stringify(user) )
 
         db.movieCollection
           .findAll({
-            where: { id: data.savedCollections}
-          }).then((data) => {
-            res.json(data)
+            where: { id: user.savedCollections}
+          }).then((movieCollections) => {
+            console.log("movieCollections :" + JSON.stringify(movieCollections))
+            res.json(movieCollections)
           })
           .catch((err) => {
-            console.log("get savedCollections by id")
-            console.log(err);
+            console.log("getCollections error " + err.message)
             res.status(422).json(err);
           })
         

@@ -19,7 +19,8 @@ class LoginForm extends Component {
     this.state = {
       username: "",
       password: "",
-      redirect: null
+      redirect: null,
+      userId: ""
     };
   }
 
@@ -47,12 +48,13 @@ class LoginForm extends Component {
       })
         .then((res) => {
       // redirect to search
-          this.setState({username: res.username,  redirect: "/results" })
+          this.setState({username: res.username, redirect: "/home" })
           console.log(res)
 
         }).catch((err) => console.log(err));
     }
     console.log("loginUser:" + this.state.username);
+    console.log("userId" + this.state.userId)
   };
 
   render() {
@@ -62,7 +64,7 @@ class LoginForm extends Component {
 
       return <Redirect to={{
         pathname: "/home",
-        state: { username: this.state.username }
+        state: { username: this.state.username}
       }
       } />
     }

@@ -16,7 +16,7 @@ class Collections extends Component {
     state = {
         collections: [],
         savedCollections: [],
-        userId: 2,
+        userId: 19,
         show: false,
         onHide: false
     };
@@ -43,6 +43,7 @@ class Collections extends Component {
 
     loadSavedCollections = (e) => {
         // e.preventDefault(); 
+        console.log("load saved collections" + this.state.userId)
         API.getSavedCollectionsByUserId(this.state.userId)
             .then((res) => {
                 console.log("saved collections: " + JSON.stringify(res.data));

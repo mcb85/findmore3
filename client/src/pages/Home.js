@@ -18,7 +18,8 @@ class Home extends Component {
       movies: [],
       title: "",
       redirect: null,
-      username: null
+      username: null,
+      userId:19
       // books: [],
       // tvShows: [],
     };
@@ -60,7 +61,7 @@ class Home extends Component {
 
       return <Redirect to={{
         pathname: "/results",
-        state: { title: this.state.title, movies: this.state.movies }
+        state: { title: this.state.title, movies: this.state.movies, username: this.props.location.state.username }
       }
       } />
     }
@@ -80,7 +81,8 @@ class Home extends Component {
               <br></br>
               <br></br>
               <h3 className="d-flex justify-content-center">
-           {this.state.username} What would you like to find more of today?
+                {this.props.location.state.username} 
+                What would you like to find more of today?
               </h3>
               <Col size="md-12">
                 <Col size="md-12">
@@ -89,7 +91,7 @@ class Home extends Component {
                   value={this.state.search}
                   onChange={this.handleInputChange}
                   name="title"
-                  placeholder="Enter Title"
+                  placeholder="Enter Movie Title"
                 />
                 <br></br>
                 <FormBtn disabled={!this.state.title} onClick={this.search}

@@ -14,12 +14,13 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^5.2.0",
+  
+    
+  "dependencies": {
+  "concurrently": "^5.2.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.3"
-  },
-  "dependencies": {
+  ,
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "bcryptjs": "^2.4.3",

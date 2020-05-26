@@ -28,11 +28,11 @@ export default {
     console.log("create collection data", data);
     return axios.post("/api/movies", data);
   },
-  getMoviesCommentsByCollectionId: function (id) {
-    return axios.get("/api/movieComments/" + id);
+  getMoviesCommentsByCollectionId: function (collectionId) {
+    return axios.get("/api/movieComments/" + collectionId);
   },
-  createMoviesComments: function (data) {
-    return axios.post("/api/movieComments/", data);
+  createMoviesComments: function (data,collectionId) {
+    return axios.post("/api/movieComments/" + collectionId, data);
   },
   LoginUser: function (data) {
     console.log("logging in");

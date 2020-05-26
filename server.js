@@ -14,7 +14,7 @@ app.use(express.json());
 // app.use(express.static("public"));
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
- }
+}
 app.use(
     session({
         secret: process.env.SECRET,
@@ -23,9 +23,9 @@ app.use(
     })
 );
 // Add routes, both API and view
-app.use(routes);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(routes);
 
 app.set("view engine", "ejs");
 

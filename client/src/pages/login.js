@@ -1,25 +1,26 @@
 import React, { Component } from "react";
-//import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Container, Row, Col } from "../components/Grid";
-import { SmTextbox} from "../components/Textbox";
-import {  LinkButton } from "../components/Button";
+import { SmTextbox } from "../components/Textbox";
+import { LinkButton } from "../components/Button";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 
 // const divStyle = {
-  
+
 // }
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
- 
+
     this.state = {
-    username: "",
-    password: "",
-  };
+      username: "",
+      password: "",
+      redirect: null
+    };
   }
 
   handleInputChange = async (event) => {
@@ -39,34 +40,50 @@ class LoginForm extends Component {
   handleSubmit = (event) => {
     console.log("submitting username and password")
     event.preventDefault();
-    if (this.state.username && this.state.password) { 
+    if (this.state.username && this.state.password) {
       API.LoginUser({
         username: this.state.username,
         password: this.state.password,
       })
-        .then((res) =>
-        console.log(res))
-        .catch((err) => console.log(err));
+        .then((res) => {
+      // redirect to search
+          this.setState({username: res.username,  redirect: "/results" })
+          console.log(res)
+
+        }).catch((err) => console.log(err));
     }
     console.log("loginUser:" + this.state.username);
   };
 
   render() {
+    
+    if (this.state.redirect) {
+      console.log(this.state.username);
+
+      return <Redirect to={{
+        pathname: "/home",
+        state: { username: this.state.username }
+      }
+      } />
+    }
+
     return (
+
+
       <Container fluid>
-        <Nav/>
+        <Nav />
         <Row className="no-gutters">
           <Col size="sm-6 " className=".mr-0 .pr-0">
             <Jumbotron><img className="rounded-5" src="icon.png" width="250" alt="logo"></img>
-          </Jumbotron>
+            </Jumbotron>
           </Col>
-          
+
           <Col size="sm-6 " className=".ml-0, .pr-0">
             <br></br>
             <br></br>
             <br></br>
             <br></br>
-      <br></br>
+            <br></br>
             <form className="form-horizontal">
               <div className="form-group">
                 <Row>
@@ -83,6 +100,7 @@ class LoginForm extends Component {
                     onChange={this.handleInputChange}
                     name="password"
                     placeholder="Password"
+                    type="password"
                   />
                 </Row>
                 <button className="btn btn-primary" style={{ borderRadius: 5 }}
@@ -92,11 +110,9 @@ class LoginForm extends Component {
                 </button>
                 <LinkButton label="Don't have an account? Sign up" href="/register" method="GET" />
               </div>
-              </form>
+            </form>
           </Col>
 
-          
-          
         </Row>
       </Container>
     );

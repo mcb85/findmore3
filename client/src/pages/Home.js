@@ -17,7 +17,8 @@ class Home extends Component {
     this.state = {
       movies: [],
       title: "",
-      redirect: null
+      redirect: null,
+      username: null
       // books: [],
       // tvShows: [],
     };
@@ -45,6 +46,14 @@ class Home extends Component {
   };
 
 
+  componentDidMount = () => {
+    if (!this.state.username) {
+      if  (this.state.username || this.props.location.state.username) {
+        this.setState({username: this.props.location.state.username})
+      }
+    }
+  }
+
   render() {
     if (this.state.redirect) {
         console.log(this.state.movies);
@@ -71,7 +80,7 @@ class Home extends Component {
               <br></br>
               <br></br>
               <h3 className="d-flex justify-content-center">
-                What would you like to find more of today?
+           {this.state.username} What would you like to find more of today?
               </h3>
               <Col size="md-12">
                 <Col size="md-12">

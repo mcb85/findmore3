@@ -35,6 +35,7 @@ class ResultsPage extends Component {
         this.saveMoviesCollection = this.saveMoviesCollection.bind(this);
         this.addUpVote = this.addUpVote.bind(this);
         this.addDownVote = this.addDownVote.bind(this);
+        // this.leaveComment = this.leaveComment.bind(this);
     }
 
 
@@ -86,10 +87,19 @@ class ResultsPage extends Component {
         console.log("the collection is: " + collection)
     }
 
-    leaveComment = () => {
-        alert("adding comment")
-        console.log('comment saved')
-    }
+    // leaveComment = (collection, e) => {
+    //     e.preventDefault();
+    //     API.createMoviesComments(data, collection.id)
+    //         .then (result => {
+    //         console.log("saved result: " + result);
+    //     })
+    //         .catch(err => console.log(err))
+    
+    //     {
+    //     alert("adding comment")
+    //     console.log('comment saved')
+    //     }
+        
     render() {
         const self=this
         return (
@@ -120,7 +130,7 @@ class ResultsPage extends Component {
                                       SaveBtn={self.saveMoviesCollection.bind(this, movie)}
                                       upVoteBtn={self.addUpVote.bind(this, movie)}
                                       DownVoteBtn={self.addDownVote.bind(this,movie)}
-                                    //   postComments={self.postComments.bind(this, movie)}
+                                    //   leaveComment={self.leaveComment.bind(this, movie)}
                                     //   viewComments={self.viewComments.bind(this, movie)}
 
                                   />

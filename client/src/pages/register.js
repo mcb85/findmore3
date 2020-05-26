@@ -38,9 +38,9 @@ class RegisterForm extends Component {
   render() {
     return (
       <Container fluid>
-        <Nav/>
+        <Nav />
         <Row>
-          <Col size= "md-12">
+          <Col size="md-12">
           </Col>
           <Col size="md-12">
             <form className="form-horizontal">
@@ -56,6 +56,7 @@ class RegisterForm extends Component {
                 <Row>
                   <SmTextbox
                     name="password"
+                    type="password"
                     placeholder="Password"
                     value={this.state.password}
                     onChange={this.handleInputChange}

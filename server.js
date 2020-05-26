@@ -27,6 +27,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(routes);
 
+app.get('*', function (req, res) {
+    const index = path.join(__dirname, 'build', 'index.html');
+    res.sendFile(index);
+});
+
+
 app.set("view engine", "ejs");
 
 const syncOptions = { force: false };

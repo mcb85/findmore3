@@ -12,7 +12,7 @@ FindMore allows the user to find movies they are likely to enjoy based on a sear
 - Bootstrap
 - Bootswatch
 - Font Awesome
--Bcrypt
+- Bcrypt
 - Express
 - Express session
 - Axios

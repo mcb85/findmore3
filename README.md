@@ -23,3 +23,15 @@ FindMore allows the user to find movies they are likely to enjoy based on a sear
 
 ## App Link
 https://shielded-fjord-52709.herokuapp.com/
+
+### Register and Login
+![Gif of register and login](https://github.com/mcb85/findmore3/blob/master/client/public/images/register-login.gif)
+
+### Search Movie Title
+![Gif of search](https://github.com/mcb85/findmore3/blob/master/client/public/images/search-title.gif)
+
+### DownVote and Save Collection
+![Gif of downvote save](https://github.com/mcb85/findmore3/blob/master/client/public/images/upvote-savecollection.gif)
+
+### Create Movie Collection
+![Gif of create collection](https://github.com/mcb85/findmore3/blob/master/client/public/images/create-collection.gif)

@@ -16,7 +16,7 @@ class Collections extends Component {
     state = {
         collections: [],
         savedCollections: [],
-        userId: 19,
+        userId: 20,
         show: false,
         onHide: false
     };

@@ -8,6 +8,7 @@ import Register from "./pages/register";
 import ResultsPage from "./pages/ResultsPage";
 import Profile from "./pages/profile";
 import Collections from "./pages/Collections";
+import Logout from "./pages/Logout";
 //import Modal from "./components/Modal";
 import './App.css';
 //import { render } from 'react-dom';
@@ -30,7 +31,7 @@ function App() {
           <Route exact path="/collections" component={Collections} isAuthenticated />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/logout"/>
+          <Route exact path="/logout" component={Logout}/>
           <Route component={NoMatch} />
         </Switch>
       </div>

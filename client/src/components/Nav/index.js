@@ -1,9 +1,16 @@
-import React from "react";
+import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import Logout from "../../pages/Logout"
+
+
+
 
 function Nav() {
   return (
+
+
+
     <nav className="navbar navbar-expand-lg navbar-light bg-light border-0">
       <Link className="navbar-brand" to="/">
         <img src="icon.png" width="40px" alt="logo"></img> FindMore
@@ -83,6 +90,13 @@ function Nav() {
               Logout
             </Link>
           </li> 
+{/* 
+          <li>
+            <Logout onClick>
+              
+          </Logout>
+
+          </li> */}
         </ul>
       </div>
     </nav>

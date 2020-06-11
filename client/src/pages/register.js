@@ -28,8 +28,8 @@ class RegisterForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("username:" + this.state.username)
-    console.log("password" + this.state.password)
+    console.log("username")
+    console.log("password")
     if (this.state.username && this.state.password) {
       API.RegisterUser({
         username: this.state.username,
